@@ -8,7 +8,7 @@ namespace Snake
 {
     class Snake:Figure
     {
-        public Direction direction;
+        Direction direction;
         public Snake(Point tail, int lenght, Direction _direction)
         {
             direction = _direction;
@@ -48,6 +48,21 @@ namespace Snake
                 direction = Direction.UP;
             else if (key == ConsoleKey.DownArrow)
                 direction = Direction.DOWN;
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.x == food.x && head.y == food.y)
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
