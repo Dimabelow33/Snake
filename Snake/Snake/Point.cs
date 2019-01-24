@@ -43,6 +43,11 @@ namespace Snake
                 x = x - offset;
             }
         }
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
 
         public void Draw()
         {
